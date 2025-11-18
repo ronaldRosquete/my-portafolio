@@ -1,10 +1,11 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
 import { AuroraText } from "./ui/aurora-text";
 import { personalInfo } from "@/lib/data";
 import MotionWrapper from "./MotionWrapper";
 import { motion } from "motion/react";
+import { MagicCard } from "./ui/magic-card";
 
 export function AboutMe() {
   const childVariants = {
@@ -22,8 +23,8 @@ export function AboutMe() {
     <section id="about" className="py-20 scroll-mt-16">
       <div className="space-y-8">
         <MotionWrapper>
-          <AuroraText className="text-3xl md:text-4xl font-bold">
-            Sobre Mí
+          <AuroraText className="text-4xl font-bold mb-8 text-center md:text-left flex items-center justify-center md:justify-start">
+            About Me
           </AuroraText>
         </MotionWrapper>
 
@@ -47,22 +48,24 @@ export function AboutMe() {
             </motion.div>
           </MotionWrapper>
 
-          {/* Card con información */}
+          {/* Information Card */}
           <MotionWrapper>
-            <Card
-              className="bg-background/70 backdrop-blur-sm border border-border/20 shadow-md 
-             w-full md:w-420x] lg:w-[420px] xl:w-[700px]"
+            <MagicCard
+              className="
+        bg-background/70 backdrop-blur-sm border border-border/20 shadow-md 
+        w-full md:w-[420px] lg:w-[420px] xl:w-[700px]
+        rounded-2xl p-0
+      "
             >
               <CardContent className="p-6">
                 <div className="relative pl-4">
-                  <span className="absolute left-0 top-0 h-full w-1 bg-linear-to-b from-purple-500 to-pink-500 rounded-full"></span>
-
+                  <span className="absolute left-0 top-0 h-full w-1 bg-linear-to-b from-purple-500 to-pink-500 rounded-full" />
                   <p className="text-muted-foreground text-justify leading-relaxed">
                     {personalInfo.aboutMe}
                   </p>
                 </div>
               </CardContent>
-            </Card>
+            </MagicCard>
           </MotionWrapper>
         </div>
       </div>

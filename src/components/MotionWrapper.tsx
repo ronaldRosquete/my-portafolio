@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import type { MotionProps } from "framer-motion";
-import type { Variants, Easing } from "framer-motion";
+import type { Easing } from "framer-motion";
 
 
 interface MotionWrapperProps extends MotionProps {

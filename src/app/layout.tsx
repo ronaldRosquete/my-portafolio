@@ -2,12 +2,17 @@ import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import GlobalParticles from '@/components/ui/global-particles';
+
+
+// 👇 IMPORTANTE: importa tu componente
+
 
 const inter = Inter({ subsets: ["latin"] });
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Desarrollador Web | Portafolio',
+  title: 'Ronald Rosquete | Portafolio',
   description: 'Portafolio profesional de desarrollador web full-stack',
   generator: 'v0.app',
   icons: {
@@ -36,8 +41,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="dark">
-      <body className={`font-sans antialiased`}>
+      <body className="font-sans antialiased relative">
+        
+        {/* ⭐ Partículas globales detrás de todo */}
+        <GlobalParticles />
+
         {children}
+
         <Analytics />
       </body>
     </html>

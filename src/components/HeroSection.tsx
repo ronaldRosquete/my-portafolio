@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import { InteractiveHoverButton } from "./ui/interactive-hover-button";
 import { Meteors } from "./ui/meteors";
 import { AuroraText } from "./ui/aurora-text";
-import { motion, Variant, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
-export function Hero() {
+export function HeroSection() {
   const heroVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     show: {
@@ -33,8 +33,14 @@ export function Hero() {
     },
   };
 
-  function scrollToSection(id: Variant): void {
-    throw new Error("Function not implemented.");
+  function scrollToSection(id: string): void {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   }
 
   return (
@@ -42,6 +48,7 @@ export function Hero() {
       id="inicio"
       className="relative min-h-[80vh] flex flex-col justify-center py-20 overflow-hidden"
     >
+      
       <Meteors number={40} />
 
       <motion.div
@@ -76,15 +83,19 @@ export function Hero() {
         >
           <Button
             size="lg"
-            onClick={() => scrollToSection(item.id)}
-            className="gap-2"
+            onClick={() => scrollToSection("projects")} // ← aquí va el ID real
+            className="gap-2 cursor-pointer"
           >
             See Projects
             <ExternalLink className="h-4 w-4" />
           </Button>
-          <InteractiveHoverButton>Contact me</InteractiveHoverButton>
+
+          <InteractiveHoverButton onClick={() => scrollToSection("about")}>
+            Start
+          </InteractiveHoverButton>
         </motion.div>
 
+        {/* Socials */}
         <motion.div variants={item} className="flex items-center gap-4 pt-4">
           <a
             href={personalInfo.github}
